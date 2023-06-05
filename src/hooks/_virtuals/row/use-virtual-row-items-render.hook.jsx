@@ -1,12 +1,11 @@
 import {useMemo} from "react";
 import VirtualItem from "../../../components/ui/_containers/_virtuals/virtual-item";
 
-export const useVirtualColumnItemsRender = function (list, ids, itemHeight) {
+export const useVirtualRowItemsRender = function (list, ids, itemWidth) {
     const virtualItems = useMemo(() => list.map((item, index) => {
-        console.log('virtuals rerender');
-        const position = itemHeight * index;
+        const position = itemWidth * index;
         return (
-            <VirtualItem key={position} height={itemHeight} top={position} children={item}/>
+            <VirtualItem key={position} width={itemWidth} left={position} children={item}/>
         );
     }), [list]);
     return useMemo(() => {
