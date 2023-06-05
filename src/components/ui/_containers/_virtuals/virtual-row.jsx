@@ -1,19 +1,15 @@
 import React from 'react';
-
-const styles = {
-    position: 'relative',
-    overflow: 'auto',
-    height: '100%'
-}
+import VirtualView from "./_parts/virtual-view";
+import VirtualContainer from "./_parts/virtual-container";
 
 const VirtualRow = (props) => {
     const { hook, children, ...other } = props;
     return (
-        <div {...other} onScroll={hook.onScroll} style={{...styles, width: hook.viewWidth ?? '100%'}} ref={hook.ref}>
-            <div style={{width: hook.itemWidth * hook.list.length}}>
+        <VirtualView {...other} onScroll={hook.onScroll} width={hook.viewWidth} ref={hook.ref}>
+            <VirtualContainer width={hook.itemWidth * hook.list.length}>
                 { hook.items }
-            </div>
-        </div>
+            </VirtualContainer>
+        </VirtualView>
     );
 };
 

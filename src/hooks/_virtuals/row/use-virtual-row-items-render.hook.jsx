@@ -1,5 +1,5 @@
 import {useMemo} from "react";
-import VirtualItem from "../../../components/ui/_containers/_virtuals/virtual-item";
+import VirtualItem from "../../../components/ui/_containers/_virtuals/_parts/virtual-item";
 
 export const useVirtualRowItemsRender = function (list, ids, itemWidth) {
     const virtualItems = useMemo(() => list.map((item, index) => {
