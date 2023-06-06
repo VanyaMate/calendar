@@ -1,9 +1,9 @@
 import {useMemo} from "react";
 
-export const useVirtualRowIds = function (scroll, itemWidth, viewWidth, tolerance, resizeEvent) {
+export const useVirtualRowIds = function (scroll, itemWidth, viewWidth, tolerance, resizeEvent, deps) {
     return useMemo(() => {
         const min = Math.ceil(scroll / itemWidth - tolerance);
         const max = Math.floor((scroll + viewWidth) / itemWidth + tolerance);
         return [min, max];
-    }, [scroll, viewWidth, resizeEvent, tolerance]);
+    }, [scroll, viewWidth, resizeEvent, tolerance, ...deps]);
 }

@@ -3,7 +3,6 @@ import VirtualItem from "../../../components/ui/_containers/_virtuals/_parts/vir
 
 export const useVirtualColumnItemsRender = function (list, ids, itemHeight) {
     const virtualItems = useMemo(() => list.map((item, index) => {
-        console.log('virtuals rerender');
         const position = itemHeight * index;
         return (
             <VirtualItem key={position} height={itemHeight} top={position} children={item}/>
@@ -16,5 +15,5 @@ export const useVirtualColumnItemsRender = function (list, ids, itemHeight) {
             items.push(virtualItems[i]);
         }
         return items;
-    }, ids);
+    }, [...ids, virtualItems]);
 }

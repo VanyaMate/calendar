@@ -9,7 +9,7 @@ export const useVirtualColumn = function (list,  itemHeight, viewHeight, toleran
     const [height, setHeight] = useState(viewHeight);
     const { scroll, setScroll, onScroll } = useVirtualColumnScrollState();
     const { resize } = useVirtualColumnResize();
-    const ids = useVirtualColumnIds(scroll, itemHeight, height, tolerance, resize);
+    const ids = useVirtualColumnIds(scroll, itemHeight, height, tolerance, resize, [list]);
     const items = useVirtualColumnItemsRender(list, ids, itemHeight);
 
     useEffect(() => {

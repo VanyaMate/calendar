@@ -9,7 +9,7 @@ export const useVirtualRow = function (list,  itemWidth, viewWidth, tolerance = 
     const [width, setWidth] = useState(viewWidth);
     const { scroll, setScroll, onScroll } = useVirtualRowScrollState();
     const { resize } = useVirtualRowResize();
-    const ids = useVirtualRowIds(scroll, itemWidth, width, tolerance, resize);
+    const ids = useVirtualRowIds(scroll, itemWidth, width, tolerance, resize, [list]);
     const items = useVirtualRowItemsRender(list, ids, itemWidth);
 
     useEffect(() => {

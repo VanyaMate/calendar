@@ -16,6 +16,7 @@ export const useCalendar = function (notes = {}, options = {}) {
     return useMemo(() => ({
         currentDay,
         dayList,
+        setCurrentDay,
         selectNextDay,
         selectPrevDay,
     }), [dayList])

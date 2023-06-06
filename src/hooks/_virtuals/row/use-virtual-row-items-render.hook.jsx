@@ -15,5 +15,5 @@ export const useVirtualRowItemsRender = function (list, ids, itemWidth) {
             items.push(virtualItems[i]);
         }
         return items;
-    }, ids);
+    }, [...ids, virtualItems]);
 }
